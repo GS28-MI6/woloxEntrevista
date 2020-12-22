@@ -5,15 +5,17 @@ import {
 } from "react-router-dom";
 import { Provider, connect } from "react-redux";
 import store from "./store";
-import Counts from "./Counts"
-import './App.css';
+import Landing from "./components/landing"
+import Header from "./components/header"
+import "./css/main.css"
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router>
-          <Route exact path="/" render={props => <Counts />} />
+          <Header />
+          <Route exact path="/" render={props => <Landing />} />
         </Router>
       </Provider>
     );

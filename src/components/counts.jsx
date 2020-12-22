@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { addOneToCount, startCount } from "./actions/postActions";
+import { addOneToCount, startCount } from "../actions/postActions";
 
-class Counts extends Component {
+class counts extends Component {
     constructor(props) {
         super(props);
         this.props.startCount()
@@ -28,4 +28,4 @@ const mapStateToProps = state => ({
 });
 
 //actions que utilizo en este componente
-export default connect(mapStateToProps, { addOneToCount, startCount })(Counts);
+export default connect(mapStateToProps, { addOneToCount, startCount })(counts);

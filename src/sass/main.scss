@@ -1,0 +1,135 @@
+$primary-color: #343a40;
+$wolox-blue: #009EE1;
+$wolox-green: #ADC80A;
+$light-grey: #f5f5f5;
+$bg-img-header3: url("../assets/Backgrounds/Bg_Header@3x.png");
+$bg-img-woloxer3: url("../assets/img_woloxer@3x.png");
+
+@mixin font($font-family, $font-file) {
+  @font-face {
+    font-family: $font-family;
+    src: url($font-file+'.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@include font('Fira_sans', '../assets/Fonts/Fira_Sans/FiraSans-Regular');
+@include font('Monserrat', '../assets/Fonts/Montserrat/Montserrat-Regular');
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: "white";
+  color: "black";
+  z-index:100;
+  // .headerBackground{
+  //   height: 100%;
+  //   width: 100%;
+  //   position: absolute;
+  //   background-image: $bg-img-header3;
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  // }
+  .headerLogo{
+    height: 40%;
+    width: auto;
+  }
+  .links{
+    .link{
+      color: black;
+      font-family: Roboto;
+      font-size: 1.5rem;
+      text-decoration: none;
+      padding-right: 1.5rem;
+    }
+    .buttonLink{
+      border: 2px solid $wolox-blue;
+      padding-left:5rem;
+      padding-right: 5rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      border-radius: 50px;
+      color:$wolox-blue;
+    }
+    .buttonLink:hover{
+      background-color: $wolox-blue;
+      transition: .3s;
+      color: white;
+    }
+  }
+}
+
+body{
+  .bienvenido{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+    background-image: $bg-img-header3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .bg-bienvenido{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background-image: $bg-img-header3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index:0;
+    }
+    .text-container{
+      width: 50%;
+      .green{
+        color:$wolox-green;
+      }
+    }
+    .img-container{
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+    }
+  }
+  .communication{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+    .buttonHalf{
+      width: 50%;
+      background-image: $bg-img-woloxer3;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      .twitter{
+        font-size: 2rem;
+        img{
+          height: 30px;
+        }
+      }
+    }
+  }
+}
