@@ -1,21 +1,27 @@
 $primary-color: #343a40;
-$wolox-blue: #009EE1;
-$wolox-green: #ADC80A;
+$wolox-blue: #009ee1;
+$wolox-green: #adc80a;
 $light-grey: #f5f5f5;
 $bg-img-header3: url("../assets/Backgrounds/Bg_Header@3x.png");
+$bg-img-footer3: url("../assets/Backgrounds/Bg_Footer@3x.png");
 $bg-img-woloxer3: url("../assets/img_woloxer@3x.png");
 
 @mixin font($font-family, $font-file) {
   @font-face {
     font-family: $font-family;
-    src: url($font-file+'.ttf') format('truetype');
+    src: url($font-file + ".ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
 }
+@mixin flexer($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
 
-@include font('Fira_sans', '../assets/Fonts/Fira_Sans/FiraSans-Regular');
-@include font('Monserrat', '../assets/Fonts/Montserrat/Montserrat-Regular');
+@include font("Fira_sans", "../assets/Fonts/Fira_Sans/FiraSans-Regular");
+@include font("Monserrat", "../assets/Fonts/Montserrat/Montserrat-Regular");
 
 * {
   box-sizing: border-box;
@@ -24,111 +30,482 @@ $bg-img-woloxer3: url("../assets/img_woloxer@3x.png");
   margin: 0;
 }
 
+.green {
+  color: $wolox-green;
+}
+.blue {
+  color: $wolox-blue;
+}
+
 header {
   width: 100%;
   height: 100px;
-  display: flex;
+  @include flexer(space-between, center);
   padding-left: 10%;
   padding-right: 10%;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   background-color: "white";
   color: "black";
-  z-index:100;
-  // .headerBackground{
-  //   height: 100%;
-  //   width: 100%;
-  //   position: absolute;
-  //   background-image: $bg-img-header3;
-  //   background-size: cover;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  // }
-  .headerLogo{
-    height: 40%;
-    width: auto;
+  z-index: 100;
+  .headerLogo {
+    width: 15rem;
+    height: auto;
   }
-  .links{
-    .link{
+  .links {
+    .link {
       color: black;
-      font-family: Roboto;
       font-size: 1.5rem;
       text-decoration: none;
       padding-right: 1.5rem;
     }
-    .buttonLink{
+    .buttonLink {
       border: 2px solid $wolox-blue;
-      padding-left:5rem;
+      text-align: center;
+      padding-left: 5rem;
       padding-right: 5rem;
-      padding-top: .5rem;
-      padding-bottom: .5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
       border-radius: 50px;
-      color:$wolox-blue;
+      color: $wolox-blue;
     }
-    .buttonLink:hover{
+    .buttonLink:hover {
       background-color: $wolox-blue;
-      transition: .3s;
+      transition: 0.3s;
       color: white;
     }
   }
 }
-
-body{
-  .bienvenido{
+body {
+  hr {
+    margin-left: 10%;
+    width: 80%;
+    height: 0;
+    border: 0;
+    box-shadow: 0 0 10px 1px black;
+  }
+  hr::after {
+    content: "\00a0";
+  }
+  .bienvenido {
     padding-left: 10%;
     padding-right: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexer(space-between, center);
     font-size: 3rem;
     background-image: $bg-img-header3;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    .bg-bienvenido{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    background-image: $bg-img-header3;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index:0;
+    .bg-bienvenido {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      background-image: $bg-img-header3;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
     }
-    .text-container{
+    .text-container {
       width: 50%;
-      .green{
-        color:$wolox-green;
-      }
     }
-    .img-container{
+    .img-container {
       margin-top: 2rem;
       margin-bottom: 2rem;
-      display: flex;
-      justify-content: space-around;
+      @include flexer(space-around, null);
       width: 50%;
     }
   }
-  .communication{
-    padding-left: 10%;
-    padding-right: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .communication {
+    width: 100%;
+    height: 400px;
+    @include flexer(space-between, center);
     font-size: 3rem;
-    .buttonHalf{
+    .buttonHalf {
       width: 50%;
+      height: 100%;
+      @include flexer(center, center);
       background-image: $bg-img-woloxer3;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      .twitter{
+      color: white;
+      .twitter {
         font-size: 2rem;
-        img{
-          height: 30px;
+        @include flexer(center, center);
+        flex-direction: column;
+        .textoPrincipal {
+          font-size: 3rem;
+          padding-bottom: 3rem;
         }
+      }
+      .texto {
+        @include flexer(center, center);
+        flex-direction: row;
+        padding-bottom: 1.5rem;
+        img {
+          height: 3rem;
+          width: auto;
+          padding-right: 1rem;
+        }
+      }
+
+      .link {
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+        border: 2px solid $wolox-blue;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.7rem;
+        border-radius: 50px;
+        line-height: 2rem;
+      }
+      .link:hover {
+        background-color: $wolox-blue;
+        transition: 0.3s;
+      }
+    }
+    .textHalf {
+      @include flexer(center, center);
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      background-color: $light-grey;
+    }
+  }
+  .beneficios {
+    @include flexer(center, center);
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    height: 400px;
+    .titulo {
+      font-size: 2rem;
+      padding-bottom: 1.5rem;
+      text-align: center;
+    }
+    .imagenes {
+      @include flexer(space-between, center);
+      flex-direction: row;
+      width: 100%;
+      height: 60%;
+      .divider {
+        display: flex;
+        width: 50%;
+        @include flexer(space-between, baseline);
+        flex-direction: row;
+        .image {
+          @include flexer(center, center);
+          flex-direction: column;
+          font-size: 5rem;
+          width: 120px;
+          height: 170px;
+          .texto {
+            font-size: 1rem;
+            padding-top: 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .gracias {
+    @include flexer(center, center);
+    flex-direction: column;
+    padding-right: 10%;
+    padding-left: 10%;
+    width: 100%;
+    height: 400px;
+    background-image: $bg-img-footer3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .title {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    .texto {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .button {
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+      border: 2px solid $wolox-blue;
+      padding-left: 5rem;
+      padding-right: 5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.7rem;
+      border-radius: 50px;
+      line-height: 2rem;
+    }
+    .button:hover {
+      background-color: $wolox-blue;
+      color: white;
+      transition: 0.3s;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  header {
+    .headerLogo {
+      width: 10rem;
+      height: auto;
+    }
+    .links {
+      .link {
+        font-size: 1.2rem;
+      }
+      .buttonLink {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+  }
+  body {
+    .bienvenido {
+      font-size: 2.5rem;
+    }
+    .communication {
+      font-size: 2.5rem;
+      height: 350px;
+      .buttonHalf {
+        .twitter {
+          font-size: 1.5rem;
+          .textoPrincipal {
+            font-size: 2.5rem;
+          }
+          .texto {
+            img {
+              height: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    .beneficios {
+      .titulo {
+        font-size: 1.5rem;
+      }
+    }
+    .gracias {
+      .title {
+        font-size: 2rem;
+      }
+      .texto {
+        font-size: 1.5rem;
+      }
+      .button {
+        font-size: 1.2rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  header {
+    .headerLogo {
+      width: 8rem;
+      height: auto;
+    }
+    .links {
+      .link {
+        font-size: 1rem;
+      }
+      .buttonLink {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        background-color: $wolox-blue;
+        color: white;
+      }
+    }
+  }
+  body {
+    .bienvenido {
+      font-size: 1.8rem;
+    }
+    .communication{
+      .buttonHalf{
+        .twitter{
+          .link{
+            background-color: $wolox-blue;
+          }
+        }
+      }
+    }
+    .beneficios {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      .titulo {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+        margin-bottom: 1.5rem;
+      }
+      .imagenes {
+        flex-direction: column;
+        height: auto;
+        .divider {
+          height: 50%;
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+    .gracias{
+      .title{
+        font-size: 2rem;
+      }
+      .texto{
+        font-size: 1.5rem;
+      }
+      .button{
+        font-size: 1.2;
+        padding-left: 4rem;
+        padding-right: 4rem;
+        background-color: $wolox-blue;
+        color: white;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  body {
+    .bienvenido {
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      .text-container{
+        width: 100%;
+      }
+      @include flexer(center, center);
+      .img-container{
+        display: none;
+      }
+    }
+    .communication{
+      flex-direction: column;
+      height: 400px;
+      .buttonHalf{
+        width: 100%;
+        height: 65%;
+        .twitter{
+          .textoPrincipal{
+            font-size: 2.5rem;
+          }
+          .texto{
+            img{
+              height: 2.5rem;
+            }
+          }
+          .link{
+            font-size: 1rem;
+            padding-left: 4rem;
+            padding-right: 4rem;
+          }
+        }
+      }
+      .textHalf{
+        width: 100%;
+        height: 35%;
+        font-size: 1.8rem;
+      }
+    }
+    .beneficios {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      height: 500px;
+      .titulo {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+        margin-bottom: 1.5rem;
+      }
+      .imagenes {
+        flex-direction: column;
+        height: auto;
+        .divider {
+          height: 50%;
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+    height: 150;
+    justify-content: space-evenly;
+    .headerLogo {
+      width: 5.5rem;
+      height: auto;
+    }
+    .links {
+      .link {
+        font-size: .7rem;
+      }
+      .buttonLink {
+        padding: 0;
+        border: 0;
+        background-color: white;
+        color: black;
+      }
+      .buttonLink:hover{
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+  body{
+    .communication {
+      font-size: 2rem;
+      .buttonHalf {
+        .twitter {
+          font-size: 1rem;
+          .textoPrincipal {
+            font-size: 2rem;
+          }
+          .texto {
+            img {
+              height: 2rem;
+            }
+          }
+          .link{
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+          }
+        }
+      }
+    }
+    .beneficios{
+      height: 1200px;
+      .imagenes{
+        .divider{
+          @include flexer(center, center);
+          flex-direction: column;
+        }
+      }
+    }
+    .gracias{
+      .title{
+        font-size: 1.5rem;
+      }
+      .texto{
+        font-size: 1.2rem;
+      }
+      .button{
+        font-size: 1;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        background-color: $wolox-blue;
+        color: white;
       }
     }
   }
