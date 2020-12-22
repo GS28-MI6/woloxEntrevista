@@ -24,10 +24,36 @@ const {
 } = Images;
 
 class landing extends Component {
+
+  componentDidMount(){
+    let currentLocation = window.location.href;
+    const hasCommentAnchor = currentLocation.includes("/#")
+    console.log(currentLocation)
+    if (hasCommentAnchor) {
+      const anchorId = currentLocation.split('#')[1];
+      const anchor = document.getElementById(anchorId);
+      if(anchor){
+          anchor.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
+  componentDidUpdate(){
+    let currentLocation = window.location.href;
+    const hasCommentAnchor = currentLocation.includes("/#")
+    console.log(currentLocation)
+    if (hasCommentAnchor) {
+      const anchorId = currentLocation.split('#')[1];
+      const anchor = document.getElementById(anchorId);
+      if(anchor){
+          anchor.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
+
   render() {
     return (
       <body>
-        <div className="bienvenido">
+        <div className="bienvenido" id="bienvenidos">
           <div className="text-container">
             <p>
               {" "}
@@ -53,7 +79,7 @@ class landing extends Component {
                 <p>@Wolox</p>
               </div>
               <div>
-                <Link className="link">Siguenos</Link>
+                <a href="https://twitter.com/Wolox" className="link">Siguenos</a>
               </div>
             </div>
           </div>
@@ -64,7 +90,7 @@ class landing extends Component {
             </p>
           </div>
         </div>
-        <div className="beneficios">
+        <div className="beneficios" id="beneficios">
           <div className="titulo">
             Entre los beneficios que ofrecemos se encuentran{" "}
             <b className="blue">;)</b>
@@ -117,7 +143,7 @@ class landing extends Component {
             Gracias por <b className="blue">completar el ejercicio</b>
           </b>
           <p className="texto">Te invitamos a ver mas información</p>
-          <Link className="button"> Conocer más</Link>
+          <a href="https://www.wolox.com.ar/" className="button"> Conocer más</a>
         </div>
       </body>
     );

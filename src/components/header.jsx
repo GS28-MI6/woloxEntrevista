@@ -8,9 +8,9 @@ export default class header extends Component {
             <header>
                 <img src={Logo} className="headerLogo" />
                 <div className="links">
-                    <Link className="link normalLink">Inicio</Link>
-                    <Link className="link normalLink">Beneficios</Link>
-                    <Link className="link buttonLink">Login</Link>
+                    <Link to="/#bienvenidos" className="link normalLink">Inicio</Link>
+                    <Link to="/#beneficios" className="link normalLink">Beneficios</Link>
+                    <Link to="/register" className="link buttonLink">Registro</Link>
                 </div>
             </header>
         )
