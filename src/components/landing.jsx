@@ -1,25 +1,14 @@
 import React, { Component } from "react";
 import Images from "../imageIndex";
-import { Link } from "react-router-dom";
+
 const {
   Laptop,
   Brain,
-  Bullet1,
-  Bullet2,
-  Bullet3,
   DrinkSnacks,
   HomeOffice,
   Hour,
-  Technologys,
-  WoloxFooter,
   Workshop,
-  Woloxer,
-  Woloxer2,
-  Woloxer3,
-  Logo,
   Hero1,
-  Hero2,
-  Hero3,
   Twitter,
 } = Images;
 
