@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function elementoLista(props) {
+const ElementoLista = (props) => {
   const { tech, year, author, license, language, type, logo } = props.tech;
+
+  const [favourite, setFavourite] = useState(false);
+
   let pair 
   console.log(props.index)
   if(props.index % 2 === 0){
       pair = true;
   } else {
       pair = false
+  };
+
+  useEffect(() => {
+    let auxStorage = localStorage.getItem("favourites")
+    auxStorage = auxStorage.filter((tecnologias) => {
+      return tecnologias === tech
+    })
+    if(auxStorage){
+      setFavourite(true)
+    }
+    console.log(favourite)
+  },[])
+
+  const switchFavourites = (name) => {
+    let auxStorage = localStorage.getItem("favourites");
+    if(auxStorage.includes(name)) {
+      auxStorage = auxStorage.filter((tecnologias) => {
+        return tecnologias !== name
+      })
+      localStorage.setItem("favourites")
+    }
   }
+
   console.log(pair)
   return (
     <tr>
@@ -18,6 +43,7 @@ export default function elementoLista(props) {
         <th>{author}</th>
         <th>{license}</th>
         <th>{language}</th>
+        <th></th>
         <th>{type}</th>
         <th>
           <img src={logo} className="image" />
@@ -26,3 +52,5 @@ export default function elementoLista(props) {
     </tr>
   );
 }
+
+export default ElementoLista;
