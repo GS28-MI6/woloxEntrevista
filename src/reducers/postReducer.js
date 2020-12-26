@@ -1,15 +1,15 @@
-import { ADD_COUNT } from '../actions/types';
+import { ADD_FAVOURITES } from '../actions/types';
 
 const initialState = {
-  count: {},
+  favourites: 0,
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case ADD_COUNT:
+    case ADD_FAVOURITES:
       return {
         ...state,
-        count: action.payload
+        favourites: action.payload
       };
     default:
       return state;

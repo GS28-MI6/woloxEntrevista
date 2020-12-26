@@ -46,7 +46,6 @@ header {
   flex-direction: row;
   background-color: "white";
   color: "black";
-  z-index: 100;
   .open-menu {
     display: none;
   }
@@ -257,14 +256,49 @@ body {
       transition: 0.3s;
     }
   }
-  .lista{
+  .lista {
     width: 100%;
-    height: 90vh;
-    @include flexer(center,center);
+    @include flexer(center, center);
     flex-direction: column;
-    .filteredTable{
+    margin-top: 2rem;
+    font-weight: bold;
+    text-align: center;
+    .row{
+      @include flexer(center, center);
+      flex-direction: row;
+    }
+    .searchInputs {
+      @include flexer(center, center);
+      width: 100%;
+      flex-direction: row;
+      margin-bottom: 2rem;
+      .inputLabel {
+        @include flexer(center, center);
+        background-color: $wolox-blue;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        height: 3rem;
+        width: 6rem;
+      }
+      .inputSearch {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $wolox-blue;
+        padding-left: 1rem;
+        font-size: 1rem;
+        height: 3rem;
+        width: 40%;
+      }
+    }
+    .filteredTable {
       line-height: 2.5rem;
-      .titles{
+      font-size: 1rem;
+      .titles {
         border-top-width: 2px;
         border-top-style: solid;
         border-bottom-width: 2px;
@@ -272,29 +306,104 @@ body {
         border-color: $primary-color;
         background-color: $light-grey;
         @include flexer(space-between, center);
-        th{
+        .hider {
+          @include flexer(space-between, center);
+          flex-direction: row;
+        }
+        .tableElem {
           @include flexer(center, center);
-          width: 10rem;
-          height: 4rem;
+          width: 7rem;
+          height: 5rem;
         }
       }
-      .grey{
+      .grey {
         background-color: $light-grey;
       }
-      .tableElement{
+      .tableElement {
         border-bottom-width: 2px;
         border-bottom-style: solid;
         line-height: 1rem;
         @include flexer(space-between, center);
-        th{
+        .hider {
+          @include flexer(space-between, center);
+          flex-direction: row;
+        }
+        .tableElem {
           @include flexer(center, center);
-          width: 10rem;
-          height: 4rem;
+          width: 7rem;
+          height: 5rem;
           flex-wrap: wrap;
         }
-        .image{
-          height: 3rem;
+        .image {
+          height: 1.5rem;
           width: auto;
+        }
+      }
+      .hidedData {
+        display: none;
+      }
+    }
+  }
+  .registro{
+    @include flexer(center, center);
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: left;
+    .form{
+      @include flexer(flex-start, flex-start);
+      width: 60%;
+      height: auto;
+      flex-direction:column;
+      margin-top: 1rem;
+      .input{
+        width: 100%;
+        height: 2rem;
+        border-color: $wolox-blue;
+        border-style: solid;
+        border-radius: 5px;
+        appearance: none;
+        flex-direction:column;
+        margin-bottom: .5rem;
+      }
+      .divInput{
+        @include flexer(flex-start, flex-start);
+        flex-direction: column;
+        width: 100%;
+        .label{
+          padding-bottom: .5rem;
+        }
+      }
+      .errorInput{
+        @include flexer(center, center);
+        height: 2.5rem;
+        color:red;
+      }
+      .button{
+        width: 100%;
+        height: 2rem;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $wolox-blue;
+        border-radius: 3px;
+        background-color: white;
+        color: $wolox-blue;
+      }
+      .button:hover{
+        background-color: $wolox-blue;
+        transition: .3s;
+        color: white;
+      }
+      .checkboxInput{
+        @include flexer(center, center);
+        flex-direction: row;
+        a{
+          cursor: pointer;
+          color: $wolox-blue;
+          text-decoration: underline;
+        }
+        .checkbox{
+          margin-right: 5px;
         }
       }
     }
@@ -355,11 +464,45 @@ body {
         padding-right: 4rem;
       }
     }
+    .lista {
+      .filteredTable {
+        .titles {
+          .tableElem{
+            width:10rem;
+          }
+          .hider {
+            display: none;
+          }
+        }
+        .active {
+          display: flex!important;
+          flex-direction: column;
+          height: auto;
+          padding-left: 1rem;
+          font-size: 1rem;
+          font-weight:bold;
+          border-bottom-width: 2px;
+          border-bottom-style: solid;
+          text-align: left;
+        }
+        .tableElement {
+          .tableElem{
+              width:10rem;
+            }
+            .image{
+             height: 2.5rem; 
+            }
+          .hider {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 @media (max-width: 800px) {
   header {
-    .open-menu{
+    .open-menu {
       display: block;
     }
     .headerLogo {
@@ -373,21 +516,21 @@ body {
       top: 100px;
       left: 0;
       height: auto;
-      transform: scaleY(0); // implicit, but good to specify explicitly
-      transition: transform 0.3s ease-out; // note that we're transitioning transform, not height!
+      transform: scaleY(0);
+      transition: transform 0.3s ease-out;
       transform-origin: top;
       flex-direction: column;
       background-color: $light-grey;
-      li{
+      li {
         padding-top: 1rem;
         padding-bottom: 1rem;
       }
-      .link{
+      .link {
         display: flex;
         width: 100%;
         height: 100%;
         cursor: pointer;
-        color:black;
+        color: black;
         font-size: 1rem;
         padding-right: 0;
       }
@@ -400,7 +543,7 @@ body {
         background-color: inherit;
         color: black;
       }
-      .buttonLink:hover{
+      .buttonLink:hover {
         background-color: inherit;
         color: black;
       }
@@ -410,10 +553,10 @@ body {
     .bienvenido {
       font-size: 1.8rem;
     }
-    .communication{
-      .buttonHalf{
-        .twitter{
-          .link{
+    .communication {
+      .buttonHalf {
+        .twitter {
+          .link {
             background-color: $wolox-blue;
           }
         }
@@ -437,19 +580,48 @@ body {
         }
       }
     }
-    .gracias{
-      .title{
+    .gracias {
+      .title {
         font-size: 2rem;
       }
-      .texto{
+      .texto {
         font-size: 1.5rem;
       }
-      .button{
+      .button {
         font-size: 1.2;
         padding-left: 4rem;
         padding-right: 4rem;
         background-color: $wolox-blue;
         color: white;
+      }
+    }
+    .lista {
+      .filteredTable {
+        .titles {
+          .tableElem{
+            width:8rem;
+          }
+        }
+        .tableElement {
+          .tableElem{
+              width:8rem;
+            }
+            .image{
+             height: 1.5rem; 
+            }
+        }
+      }
+    }
+    .registro{
+      .form{
+        width: 100%;
+        .button{
+          background-color: $wolox-blue;
+          color: white;
+        }
+        .button:hover{
+          background-color: $wolox-blue;
+        }
       }
     }
   }
@@ -461,37 +633,37 @@ body {
       margin-top: 1rem;
       margin-bottom: 1rem;
       text-align: center;
-      .text-container{
+      .text-container {
         width: 100%;
       }
       @include flexer(center, center);
-      .img-container{
+      .img-container {
         display: none;
       }
     }
-    .communication{
+    .communication {
       flex-direction: column;
       height: 400px;
-      .buttonHalf{
+      .buttonHalf {
         width: 100%;
         height: 65%;
-        .twitter{
-          .textoPrincipal{
+        .twitter {
+          .textoPrincipal {
             font-size: 2.5rem;
           }
-          .texto{
-            img{
+          .texto {
+            img {
               height: 2.5rem;
             }
           }
-          .link{
+          .link {
             font-size: 1rem;
             padding-left: 4rem;
             padding-right: 4rem;
           }
         }
       }
-      .textHalf{
+      .textHalf {
         width: 100%;
         height: 35%;
         font-size: 1.8rem;
@@ -519,7 +691,7 @@ body {
   }
 }
 @media (max-width: 500px) {
- body{
+  body {
     .communication {
       font-size: 2rem;
       .buttonHalf {
@@ -533,30 +705,30 @@ body {
               height: 2rem;
             }
           }
-          .link{
+          .link {
             padding-left: 3.5rem;
             padding-right: 3.5rem;
           }
         }
       }
     }
-    .beneficios{
+    .beneficios {
       height: 1200px;
-      .imagenes{
-        .divider{
+      .imagenes {
+        .divider {
           @include flexer(center, center);
           flex-direction: column;
         }
       }
     }
-    .gracias{
-      .title{
+    .gracias {
+      .title {
         font-size: 1.5rem;
       }
-      .texto{
+      .texto {
         font-size: 1.2rem;
       }
-      .button{
+      .button {
         font-size: 1;
         padding-left: 3.5rem;
         padding-right: 3.5rem;

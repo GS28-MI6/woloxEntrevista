@@ -15,9 +15,9 @@ const {
 class landing extends Component {
 
   componentDidMount(){
+    //Scroll to id by url
     let currentLocation = window.location.href;
     const hasCommentAnchor = currentLocation.includes("/#")
-    console.log(currentLocation)
     if (hasCommentAnchor) {
       const anchorId = currentLocation.split('#')[1];
       const anchor = document.getElementById(anchorId);
@@ -27,9 +27,9 @@ class landing extends Component {
     }
   }
   componentDidUpdate(){
+    //Scroll to id by url
     let currentLocation = window.location.href;
     const hasCommentAnchor = currentLocation.includes("/#")
-    console.log(currentLocation)
     if (hasCommentAnchor) {
       const anchorId = currentLocation.split('#')[1];
       const anchor = document.getElementById(anchorId);
@@ -42,7 +42,7 @@ class landing extends Component {
   render() {
     return (
       <body>
-        <div className="bienvenido" id="bienvenidos">
+        <div className="bienvenido" id="bienvenidos" aria-label="Bienvenidos">
           <div className="text-container">
             <p>
               {" "}
@@ -51,10 +51,10 @@ class landing extends Component {
             </p>
           </div>
           <div className="img-container">
-            <img src={Hero1} />
+            <img src={Hero1} alt="Wolox twitter"/>
           </div>
         </div>
-        <div className="communication">
+        <div className="communication" aria-label="Redes Sociales">
           <div className="buttonHalf">
             <div className="twitter">
               <div className="textoPrincipal">
@@ -64,7 +64,7 @@ class landing extends Component {
                 </b> <b className="blue">Woloxers</b>{" "}
               </div>
               <div className="texto">
-                <img src={Twitter} />
+                <img src={Twitter} alt="Twitter"/>
                 <p>@Wolox</p>
               </div>
               <div>
@@ -79,7 +79,7 @@ class landing extends Component {
             </p>
           </div>
         </div>
-        <div className="beneficios" id="beneficios">
+        <div className="beneficios" id="beneficios" aria-label="beneficios">
           <div className="titulo">
             Entre los beneficios que ofrecemos se encuentran{" "}
             <b className="blue">;)</b>
@@ -87,17 +87,17 @@ class landing extends Component {
           <div className="imagenes">
             <div className="divider">
               <div className="image">
-                <img src={Hour} />
+                <img src={Hour} alt="reloj"/>
                 <p className="texto">
                   Flexibilidad <br /> Horaria
                 </p>
               </div>
               <div className="image">
-                <img src={HomeOffice} />
+                <img src={HomeOffice} alt="Oficina"/>
                 <p className="texto">Home Office</p>
               </div>
               <div className="image">
-                <img src={Workshop} />
+                <img src={Workshop} alt="Conversacion"/>
                 <p className="texto">
                   Capacitaciones <br /> y Workshops
                 </p>
@@ -105,20 +105,20 @@ class landing extends Component {
             </div>
             <div className="divider">
               <div className="image">
-                <img src={DrinkSnacks} />
+                <img src={DrinkSnacks} alt="Bebidas y snaks" />
                 <p className="texto">
                   {" "}
                   Snacks, Frutas <br /> y Bebidas Gratis
                 </p>
               </div>
               <div className="image">
-                <img src={Laptop} />
+                <img src={Laptop} alt="Laptop"/>
                 <p className="texto">
                   Semana <br /> Remota
                 </p>
               </div>
               <div className="image">
-                <img src={Brain} />
+                <img src={Brain} alt="Cerebro"/>
                 <p className="texto">
                   Trabajar <br /> en Ultimas <br /> Teconologias
                 </p>
@@ -127,7 +127,7 @@ class landing extends Component {
           </div>
         </div>
         <hr />
-        <div className="gracias">
+        <div className="gracias" aria-label="Conocer más">
           <b className="title">
             Gracias por <b className="blue">completar el ejercicio</b>
           </b>
