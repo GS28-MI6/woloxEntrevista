@@ -9,18 +9,12 @@ import { Provider, connect } from "react-redux";
 import store from "./store";
 import PropTypes from "prop-types";
 import "./css/main.css";
-// import Landing from "./components/landing";
 const Landing = React.lazy (() => import("./components/landing")) 
 const Header = React.lazy (() => import("./components/header")) 
 const Registro = React.lazy (() => import("./components/registro")) 
 const Lista = React.lazy (() => import("./components/lista")) 
 const NotFound = React.lazy (() => import("./components/notFound")) 
 
-// import Header from "./components/header";
-// import Registro from "./components/registro";
-// import Lista from "./components/lista";
-// import NotFound from "./components/notFound";
-// import { updateFavourites } from './actions/postActions';
 
 //Redirect when not logged in
 
