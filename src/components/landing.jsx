@@ -170,9 +170,9 @@ const Landing = ({ t, i18n }) => {
         </a>
       </div>
       <div style={{display:"flex", justifyContent:"flex-end", backgroundColor:"black", color:"white"}}>
-        {t("lenguaje")}
-        <form>
-          <select onChange={(e) => changeLanguage(e.target.value)}>
+        <p style={{paddingRight:"1rem"}}>{t("lenguaje")}</p>
+        <form style={{paddingRight:"1rem"}}>
+          <select onChange={(e) => changeLanguage(e.target.value)} >
             <option value="es">{t("Español")}</option>
             <option value="en">{t("Ingles")}</option>
           </select>
